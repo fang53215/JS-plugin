@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>localScroll</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="base.css"/>
+</head>
+<body>
+	<div class="home_content" id="top"><!-- 用id和href -->
+		<ul id="part_lead">
+			<li><a href="#part01">培训</a><span class="line"></span></li>
+			<li><a href="#part02">资讯</a><span class="line"></span></li>
+			<li><a href="#part03">应用</a><span class="line"></span></li>
+			<li><a href="#part04">数据</a></li>		
+		</ul>
+		<ul class="pre_lead" id="pre_lead">
+			<li><a href="" class="pre_item buy" data-info="税控盘购买"></a></li>
+			<li>
+				<a href="" class="pre_item tel" data-info="电话<br/>联系"></a>
+				<div class="phone"><span class="phone_gif"></span>025-86212366</div>
+			</li>
+			<li>
+				<a href="" class="pre_item qq" data-info="QQ<br/>联系"></a>
+				<div class="qq_bg">QQ:800188358</div>
+			</li>	
+
+			<li><a href="" class="pre_item email" data-info="邮件<br/>联系"></a></li>
+			<li><a href="#top" class="pre_item top" data-info="返回<br/>顶部">返回<br/>顶部</a></li>		
+		</ul>
+	</div>
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="jquery.localScroll.min.js"></script>
+<script type="text/javascript" src="jquery.scrollTo.min.js"></script>
+<script type="text/javascript">
+	$(window).scroll(function(){
+		var top = $(window).scrollTop();
+		if(top>=120){
+			$("#part_lead").fadeIn();
+		}else{
+			$("#part_lead").fadeOut();
+		}
+	});
+	$(function () {
+		$("#pre_lead,#part_lead").localScroll({duration:500});
+	})
+</script>
+</body>
+</html>
