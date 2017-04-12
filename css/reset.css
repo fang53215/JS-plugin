@@ -1,0 +1,78 @@
+body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,p,iframe,input,select,textarea {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+ font-family: "Microsoft YaHei";
+  user-selet:none;
+  -moz-user-selet:none;
+  -webkituser-selet:none;
+  -khtml-user-selet:none;
+ -ms-user-selet:none;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+img,
+canvas {
+  height: auto;
+  border: 0;
+  vertical-align: middle;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-weight: normal;
+  font-style: normal;
+  text-transform: uppercase;
+  font-family: "Microsoft YaHei";
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  display: block;
+}
+ul,ol,li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  white-space: normal;
+  word-break: break-all;
+  cursor: pointer;
+}
+a:hover,a:active,a:visited{
+   text-decoration: none;
+}
+/* form */
+fieldset {
+  border: 0;
+}
+label {
+  cursor: pointer;
+}
+input {
+  outline: none;
+  vertical-align: middle;
+  border:none;
+}
+input::-ms-clear {
+  display: none;
+}
+iframe{
+  border:0 none;
+}
+body {
+  width: 100%;
+  background: #fff;
+  color: #2a2a2a;
+  font-family: "Microsoft YaHei";
+  height: 100%;
+  overflow-y:auto;
+  font-size: 12px;
+
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
