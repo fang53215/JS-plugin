@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>calendar</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="base.css"/>
+</head>
+<body>
+<div style="width: 360px;">
+	<div class="calendar">
+		<table>
+			<tr>
+				<td class="left">
+					<div class="date">
+						<span class="prev" id="idCalendarPre"></span>
+						<span class="next" id="idCalendarNext"></span>
+						<span class="year" id="idCalendarYear">2016</span><span class="year">年</span><br/>
+						<span class="month" id="idCalendarMonth">3</span><span class="month">月</span>
+					</div>
+					<div id="idCalendarDays1" class="distance">超过本月申报</div>
+					<div id="idCalendarDays2" class="distance" style="margin-top: 10px">期<span class="day">8</span>天</div>
+				</td>
+				<td class="right">
+					<table>
+						<thead>
+							<tr>
+								<td>日</td>
+								<td>一</td>
+								<td>二</td>
+								<td>三</td>
+								<td>四</td>
+								<td>五</td>
+								<td>六</td>
+							</tr>
+						</thead>
+						<tbody id="idCalendar">
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="time.js"></script>
+<script type="text/javascript">
+	$(function(){
+		time("idCalendar","idCalendarPre","idCalendarNext");
+	});
+</script>
+</body>
+</html>

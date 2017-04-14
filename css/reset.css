@@ -68,11 +68,4 @@ body {
   height: 100%;
   overflow-y:auto;
   font-size: 12px;
-
-}
-.left{
-  float: left;
-}
-.right{
-  float: right;
 }
