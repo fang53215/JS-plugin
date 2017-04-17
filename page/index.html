@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>page</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="common-page.css"/>
+	<link rel="stylesheet" type="text/css" href="tcdPageCode.css"/>
+	<link rel="stylesheet" type="text/css" href="tcdPageCode2.css"/>
+</head>
+<body>
+<div style="width: 800px;margin:20px auto;">
+	<div class="commonpage"></div><br/>
+	<div class="tcdPageCode"></div><br/>
+	<div class="tcdPageCode2"></div>
+</div>
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="page.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var pageSize=6;
+		var total=110;
+		var totalPage=10;
+		var current=1;
+		$(".commonpage").createPage({
+			 pageCount:totalPage,//页数的总数
+	         pageSize:pageSize,//每页10条记录
+	         current:current, //默认第一页
+	         position:"center",
+	         backFn:function(pageCurrent,pageSize,pageCount){
+	        	// var pageCurrent=current;
+	 	     } 
+	  	});
+	  	$(".tcdPageCode").createPage({
+			 pageCount:totalPage,//页数的总数
+	         pageSize:pageSize,//每页10条记录
+	         current:current, //默认第一页
+	         position:"center",
+	         backFn:function(pageCurrent,pageSize,pageCount){
+	        	// var pageCurrent=current;
+	 	     } 
+	  	});
+	  	$(".tcdPageCode2").createPage({
+			 pageCount:totalPage,//页数的总数
+	         pageSize:pageSize,//每页10条记录
+	         current:current, //默认第一页
+	         position:"center",
+	         backFn:function(pageCurrent,pageSize,pageCount){
+	        	// var pageCurrent=current;
+	 	     } 
+	  	});
+	});
+</script>
+</body>
+</html>
