@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>floatAd</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+</head>
+<style type="text/css">
+#close_float_ad{
+	background: url(../images/moveadclose.png) no-repeat;
+	font-size: 0;
+	color: transparent;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	right: 8px;
+	top: 8px;
+}
+</style>
+<body>
+
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="floatAd.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//漂浮广告
+		$("body").floatAd({
+			imgSrc:"../images/movead.png",
+			imgJumpToUrl:"http://www.baidu.com",//页面跳转地址
+			openStyle:0 //跳转页打开方式 1为新页面打开  0为当前页打开
+		});
+	});
+</script>
+</body>
+</html>
