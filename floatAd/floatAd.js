@@ -9,7 +9,7 @@
 		};
 		var options = $.extend(defaults,options);
 		var _target = options.openStyle == 1 ?  "target='_blank'" : "" ;
-		var html = "<div id='float_ad' style='position:fixed;left:0px;top:0px;z-index:1000000;cleat:both;'>";
+		var html = "<div id='float_ad' style='position:fixed;left:0px;top:0px;z-index:1000000;clear:both;'>";
             html += "<a href='" + options.imgJumpToUrl + "'" + _target + ">"+
             		"<img src='" + options.imgSrc + "' border='0' class='float_ad_img'/></a>"+
             		"<a href='javascript:;' id='close_float_ad' style=''>x</a>";
