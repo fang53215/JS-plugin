@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动条</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css"/>
+	<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+	<style type="text/css">
+		.page_scroll{width:100%;height: 100%;overflow-y:auto;}
+	</style>
+</head>
+<body>
+	<div class="page_scroll">
+		1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>1111你好<br/>
+	</div>
+
+<script type="text/javascript">
+	$(function(){
+		setHeight();
+		// 滚动条初始化
+		$(".page_scroll").mCustomScrollbar({
+			theme: 'minimal-dark',
+			scrollInertia: 100,
+			axis: 'yx',
+			mouseWheel: {
+				enable: true,
+				axis: 'y',
+				preventDefault: true
+			}
+		});
+	})
+	function setHeight(){
+		$(".page_scroll").height($(window).height());
+	}
+	$(window).resize(function(){
+		setHeight();
+	})
+
+</script>
+</body>
+</html>
