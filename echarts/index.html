@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>calendar</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+<body>
+	<div class="echarts">
+		<select class="condition_type" style="width:120px;height:26px;" editable="false">
+			<option value="1">发票份数</option>
+			<option value="2">合计金额</option>
+			<option value="3">合计税额</option>
+		</select>
+		<div id="mychart" style="width:100%;height:260px;"></div>
+	</div>
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="echarts/echarts3.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//柱状图
+		var myChart = echarts.init(document.getElementById("mychart"));
+		var unit_1 = "单位：张",unit_2 = "单位：元";//y轴单位
+		var data_1a = [10000,21000,32000,22221,8000,31000,12000,35221,30000,11000,22230,12221],
+		    data_1b = [20000,31000,22000,32221,20000,21000,22000,32221,20000,21000,22000,32221],
+		    data_2a = [5000,2000,3000,2221,5000,3000,2000,5221,3000,1100,2230,1221],
+		    data_2b = [4000,4100,2200,3221,2000,4100,2200,3221,2000,4100,2200,3221],
+		    data_3a = [300,210,300,221,80,310,100,321,300,110,220,121],
+		    data_3b = [200,410,220,321,200,400,220,321,200,410,200,321];
+		creatEchart(myChart,data_1a,data_1b,unit_1);
+		$(".condition_type").change(function(){
+			//alert($(this).val())
+			if($(this).val() == 1){ //发票份数
+				creatEchart(myChart,data_1a,data_1b,unit_1);
+			}else if($(this).val() == 2){ //合计金额
+				creatEchart(myChart,data_2a,data_2b,unit_2);
+			}else if($(this).val() == 3){ //合计税额
+				creatEchart(myChart,data_3a,data_3b,unit_2);
+			}
+		});
+
+		/*$(".condition_type").combobox({   //easyui-combobox
+			onChange: function (newVal,oldVal) {		
+				if(newVal == '1'){ //发票份数
+					creatEchart(myChart,data_1a,data_1b,unit_1);
+				}else if(newVal == '2'){ //合计金额
+					creatEchart(myChart,data_2a,data_2b,unit_2);
+				}else if(newVal == '3'){ //合计税额
+					creatEchart(myChart,data_3a,data_3b,unit_2);
+				}
+			}		
+		});*/
+
+	});
+
+	function creatEchart(para,data1,data2,unit){
+		var unit_end = unit.substr(unit.length-1,1);
+		var option = {
+	        color:['#ff9b87','#6cd1de'],
+		    tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        },
+		        formatter:function(params){
+		        	var relVal = params[0].name;
+		            for (var i = 0, l = params.length; i < l; i++) {
+		                 relVal += '<br/>' + params[i].seriesName + ' : ' + params[i].value + unit_end;;
+		             }
+		            return relVal;
+
+		            /*var data= parseInt(params[0].data) +  parseInt(params[1].data);
+	        		return total + '：' + data + unit_end + '</br>专票：' + params[0].data + unit_end + '</br>普票：' + params[1].data + unit_end;*/
+		            
+		        } 
+		    },
+		    legend: {
+		        data:['未认证','已认证']
+		    },
+		    grid: {
+		    	top:'35',
+		        left: '2%',
+		        right: '2%',
+		        bottom: '3%',
+		        containLabel: true
+		    },
+		    xAxis : [
+		        {
+		            type : 'category',
+	                axisLabel: {         // x轴的字体样式
+	                    textStyle: {
+	                        color: '#343434'
+	                    }
+	                },
+		            axisLine:{      // x轴的样式
+	                    lineStyle:{
+	                        color:'#bfbfbf'
+	                    }
+	                },
+		            data :['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月']
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value',
+		            axisLabel: {         // y轴的字体样式
+	                    textStyle: {
+	                        color: '#343434'
+	                    }
+	                },
+		            axisLine:{      // y轴的样式
+	                    lineStyle:{
+	                        color:'#bfbfbf'
+	                    }
+	                },
+	                splitLine: {    // 控制网格线样式
+	                   lineStyle: {
+	                       color: '#e5e5e5'
+	                   }                            
+	                },
+	                nameTextStyle:{
+	                	 color: '#343434'
+	                },
+		            name: unit
+		        }
+		    ],
+		    series : [
+	  		        {
+	  		            name:'未认证',
+	  		            type:'bar',
+	  		            stack:'总共',
+	  		            barWidth: '30%',
+	  		            data:data1
+	  		        },
+	  		        {
+	  		            name:'已认证',
+	  		            type:'bar',
+	  		            stack:'总共',
+	  		            barWidth: '30%',
+	  		            data:data2
+	  		        }
+	  		    ]
+		};
+		para.setOption(option); // 使用刚指定的配置项和数据显示图表。
+		window.onresize = para.resize;
+	}
+</script>
+</body>
+</html>
